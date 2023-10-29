@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="UTF-8">
+<title>一覧画面</title>
+</head>
+<body>
+	<h1>自己紹介登録者一覧</h1>
+	<table class="list">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>名前</th>
+			</tr>
+		</thead>
+		<tbody>
+<!--th:each = "javaのaddAtributeの第一引数:テーブルを格納するlist"-->
+			<tr th:each = "user : ${userlist}" th:object = "${user}">
+				<td th:text = "*{userId}"></td>
+				<td th:text = "*{name}"></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

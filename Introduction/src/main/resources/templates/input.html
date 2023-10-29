@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>入力画面</title>
+</head>
+<body>
+	<p>自己紹介の内容を記入して下さい</p>
+	<form>
+		<label>名前</label><p>必</p><input type="text">
+		<label>フリガナ</label><p>必</p><input type="text">
+		<label>性別</label><input type="radio" name="gender" value="男性">男性<input type="radio" name="gender" value="女性">女性
+		<label>趣味</label><p>必</p><input type="checkbox" value="項目">項目<input type="checkbox" value="項目">項目<input type="checkbox" value="項目">項目<input type="checkbox" value="項目">項目<input type="checkbox" value="項目">項目<input type="checkbox" value="項目">項目<input type="checkbox" value="項目">項目<input type="checkbox" value="項目">項目<input type="checkbox" value="項目">項目
+		<label>一言</label><p></p>
+		<input type="submit" value="戻る" formaction="/top">
+		<input type="submit" value="次へ" formaction="/confirm">
+	</form>
+</body>
+</html>

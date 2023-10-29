@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>新規会員登録</title>
+</head>
+<body>
+	<h1>新規会員登録</h1>
+	<form th:action = "@{/user/create}" th:object = "${userRequest}" method = "post">
+		<div class="form-group">
+			<div th:if = "${userIdError}" th:text = "${userIdError}"></div>
+			<label>UserID</label><span>必須</span>
+			<input type="text" th:field = "*{userId}">
+		</div>
+		<div class="form-group">
+			<div th:if = "${EmailError}" th:text = "${EmailError}"></div>
+			<label>MailAddress</label><span>必須</span>
+			<input type="text"  th:field = "*{email}">
+		</div>
+		<div class="form-group">
+			<div th:if = "${PasswordError}" th:text = "${PasswordError}"></div>
+			<label>PassWord</label><span>必須</span>
+			<input type="text"  th:field = "*{password}">
+		</div>
+		<br>
+		<input type="submit" value = "登録">
+		<a href="login">ログイン画面へ</a>
+	</form>
+</body>
+</html>
