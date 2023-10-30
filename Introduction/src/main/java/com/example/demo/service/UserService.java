@@ -3,6 +3,8 @@ package com.example.demo.service;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,17 +24,18 @@ public class UserService {
 	/**
 	 * PasswordEncoder
 	 */
-//	private final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+	private final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 	
 	/**
 	 * 新規登録
+	 * パスワードはハッシュ化して格納 
 	 */
 	public void create(UserRequest userRequest) {
 		Date now = new Date();
 		UserEntity user = new UserEntity();
 		user.setUserId(userRequest.getUserId());
 		user.setEmail(userRequest.getEmail());
-		user.setPassword(userRequest.getPassword());
+		user.setPassword(passwordEncoder.encode(userRequest.getPassword()));
 		user.setCreateDate(now);
 		userRepository.saveAndFlush(user);
 	}

@@ -1,19 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>入力画面</title>
 </head>
 <body>
 	<p>自己紹介の内容を記入して下さい</p>
-	<form>
-		<label>名前</label><p>必</p><input type="text">
-		<label>フリガナ</label><p>必</p><input type="text">
-		<label>性別</label><input type="radio" name="gender" value="男性">男性<input type="radio" name="gender" value="女性">女性
-		<label>趣味</label><p>必</p><input type="checkbox" value="項目">項目<input type="checkbox" value="項目">項目<input type="checkbox" value="項目">項目<input type="checkbox" value="項目">項目<input type="checkbox" value="項目">項目<input type="checkbox" value="項目">項目<input type="checkbox" value="項目">項目<input type="checkbox" value="項目">項目<input type="checkbox" value="項目">項目
-		<label>一言</label><p></p>
-		<input type="submit" value="戻る" formaction="/top">
-		<input type="submit" value="次へ" formaction="/confirm">
+	<form th:action = "@{/user/confirm}" method="post">
+		<label>名前</label><span>必須</span><input type="text" name="name"><br>
+		<label>フリガナ</label><span>必須</span><input type="text" name="kana"><br>
+		<label>性別</label><input type="radio" name="gender" value="男性">男性<input type="radio" name="gender" value="女性">女性<br>
+		<label>趣味</label><p>必須</p><input type="checkbox" value="映画">映画<input type="checkbox" value="スポーツ">スポーツ<input type="checkbox" value="読書">読書<input type="checkbox" value="料理">料理<input type="checkbox" value="旅行">旅行<input type="checkbox" value="昼寝">昼寝<br>
+		<label>一言</label><input type="text"><br>
+		<input type="submit" value="次へ">
+	</form>
+	<form th:action = "@{/top}" method="post">
+			<input type="submit" value="戻る">
 	</form>
 </body>
 </html>

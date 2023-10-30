@@ -1,18 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>確認画面</title>
 </head>
 <body>
 	<h1>自己紹介登録確認</h1>
-	<label>名前</label>
-	<label>フリガナ</label>
-	<label>性別</label>
-	<label>趣味</label>
-	<label>一言</label>
-	<form>
+	<label>名前</label><p>[[${name}]]</p><br>
+	<label>フリガナ</label><p>[[${kana}]]</p><br>
+	<label>性別</label><br>
+	<label>趣味</label><br>
+	<label>一言</label><br>
+	<form th:action = "@{/user/input}" method="post">
 		<input type="submit" value="戻る">
+	</form>
+	<form>
 		<input type="submit" value="完了">
 	</form>
 </body>

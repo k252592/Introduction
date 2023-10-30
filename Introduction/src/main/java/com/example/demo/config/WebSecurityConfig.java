@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 /**
@@ -38,24 +39,10 @@ public class WebSecurityConfig {
 	}
 	
 
-	// フォームのパスワードをハッシュ化 DBからのパスワードもハッシュ化されている
-//	@Bean
-//	public BCryptPasswordEncoder passwordEncoder() {
-//		return new BCryptPasswordEncoder();
-//	}
-	
-	/**
-	 * ユーザーIDとパスワードの情報を指定
-	 * @return
-	 */
-//	@Bean
-//	public InMemoryUserDetailsManager userDetailsService() {
-//		UserDetails user = User
-//                .withUsername("user")
-//                .password(passwordEncoder().encode("123456"))
-//                .build();
-//        return new InMemoryUserDetailsManager(user);
-//	}
-    
+	// フォームのパスワードをハッシュ化
+	@Bean
+	public BCryptPasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder();
+	}    
 	
 }
