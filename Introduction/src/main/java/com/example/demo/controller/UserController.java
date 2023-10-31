@@ -63,7 +63,6 @@ public class UserController {
 		
 		// ユーザー情報登録
 		userService.create(userRequest);
-//		System.out.println(userRequest.getUserId());
 		return "redirect:/register";
 		
 	}

@@ -6,14 +6,12 @@
 </head>
 <body>
 	<h1>自己紹介登録確認</h1>
- <div th:object = "${InputRequest}"></div>
- <form th:action = "@{/user/input/back}" method="post">
-  <label>名前</label><p type="text" th:field = "*{name}"></p><br>
-  <label>フリガナ</label><p type="text" th:field = "*{kana}"></p><br>
-  <label>性別</label><br>
+ <form th:action = "@{/user/input/back}" th:object = "${inputRequest}" method="post">
+  <label>名前</label><p th:text = "*{name}"></p>
+  <label>フリガナ</label><p th:text = "*{kana}"></p>
+  <label>性別</label><br><p th:text = "*{gender}"></p>
   <label>趣味</label><br>
-  <label>一言</label><br>
-  <input type="submit" value="戻る">
+  <label>一言</label><p th:text = "*{word}"></p>
   <input type="submit" value="完了">
  </form>
 <!--	<h1>自己紹介登録確認</h1>-->
