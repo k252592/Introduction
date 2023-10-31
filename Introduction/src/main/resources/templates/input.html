@@ -6,12 +6,26 @@
 </head>
 <body>
 	<p>自己紹介の内容を記入して下さい</p>
-	<form th:action = "@{/user/confirm}" method="post">
-		<label>名前</label><span>必須</span><input type="text" name="name"><br>
-		<label>フリガナ</label><span>必須</span><input type="text" name="kana"><br>
+	<form th:action = "@{/input/create}" th:object = "${inputRequest}" method="post">
+		<div class="form-group">
+			<div th:if = "${nameError}" th:text = "${nameError}"></div>
+			<label>名前</label><span>必須</span>
+			<input type="text" name="name"><br>
+		</div>
+		<div class="form-group">
+			<div th:if = "${kanaError}" th:text = "${kanaError}"></div>
+			<label>フリガナ</label><span>必須</span>
+			<input type="text" name="kana"><br>
+		</div>
+		
 		<label>性別</label><input type="radio" name="gender" value="男性">男性<input type="radio" name="gender" value="女性">女性<br>
 		<label>趣味</label><p>必須</p><input type="checkbox" value="映画">映画<input type="checkbox" value="スポーツ">スポーツ<input type="checkbox" value="読書">読書<input type="checkbox" value="料理">料理<input type="checkbox" value="旅行">旅行<input type="checkbox" value="昼寝">昼寝<br>
-		<label>一言</label><input type="text"><br>
+		
+		<div class="form-group">
+			<div th:if = "${wordError}" th:text = "${wordError}"></div>
+			<label>一言</label>
+			<input type="text"><br>
+		</div>
 		<input type="submit" value="次へ">
 	</form>
 	<form th:action = "@{/top}" method="post">

@@ -37,6 +37,7 @@ public class InputRequest {
 	/**
 	 * 一言
 	 */
+	@Size(max = 300, message = "一言は300文字以内で入力してください。")
 	private String word;
 
 }

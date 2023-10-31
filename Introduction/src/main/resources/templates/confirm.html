@@ -6,16 +6,27 @@
 </head>
 <body>
 	<h1>自己紹介登録確認</h1>
-	<label>名前</label><p>[[${name}]]</p><br>
-	<label>フリガナ</label><p>[[${kana}]]</p><br>
-	<label>性別</label><br>
-	<label>趣味</label><br>
-	<label>一言</label><br>
-	<form th:action = "@{/user/input}" method="post">
-		<input type="submit" value="戻る">
-	</form>
-	<form>
-		<input type="submit" value="完了">
-	</form>
+ <div th:object = "${InputRequest}"></div>
+ <form th:action = "@{/user/input/back}" method="post">
+  <label>名前</label><p type="text" th:field = "*{name}"></p><br>
+  <label>フリガナ</label><p type="text" th:field = "*{kana}"></p><br>
+  <label>性別</label><br>
+  <label>趣味</label><br>
+  <label>一言</label><br>
+  <input type="submit" value="戻る">
+  <input type="submit" value="完了">
+ </form>
+<!--	<h1>自己紹介登録確認</h1>-->
+<!--	<label>名前</label><p>[[${name}]]</p><br>-->
+<!--	<label>フリガナ</label><p>[[${kana}]]</p><br>-->
+<!--	<label>性別</label><br>-->
+<!--	<label>趣味</label><br>-->
+<!--	<label>一言</label><br>-->
+<!--	<form th:action = "@{/user/input}" method="post">-->
+<!--		<input type="submit" value="戻る">-->
+<!--	</form>-->
+<!--	<form>-->
+<!--		<input type="submit" value="完了">-->
+<!--	</form>-->
 </body>
 </html>

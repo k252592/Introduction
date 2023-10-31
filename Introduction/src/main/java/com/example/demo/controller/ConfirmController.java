@@ -24,7 +24,7 @@ public class ConfirmController {
 	/**
 	 * 戻るボタンで入力画面の表示
 	 */
-	@RequestMapping("/user/input")
+	@RequestMapping("/user/input/back")
 	public String inputShow() {
 		return "input";
 	}
