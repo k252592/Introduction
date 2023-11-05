@@ -22,7 +22,7 @@ public class ListController {
 	/**
 	 * 一覧画面を表示
 	 * @param model Model
-	 * @return 一覧画面のHTML
+	 * @return 一覧画面表示
 	 */
 	@RequestMapping("/user/list")
 	public String displayList(Model model) {

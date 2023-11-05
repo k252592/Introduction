@@ -6,7 +6,8 @@
 </head>
 <body>
 	<h1>自己紹介登録者一覧</h1>
-	<table class="list">
+	<form th:action = "@{/detail}" method="post">
+		<table class="list">
 		<thead>
 			<tr>
 				<th>ID</th>
@@ -14,12 +15,15 @@
 			</tr>
 		</thead>
 		<tbody>
-<!--th:each = "javaのaddAtributeの第一引数:テーブルを格納するlist"-->
 			<tr th:each = "user : ${userlist}" th:object = "${user}">
-				<td th:text = "*{userId}"></td>
+				<td><input type="submit" th:value="*{userId}" name = "*{userId}"></td>
 				<td th:text = "*{name}"></td>
 			</tr>
 		</tbody>
 	</table>
+	</form>
+	<form th:action="@{/top}" method="post">		
+		<input type="submit" value="TOPへ戻る">
+	</form>
 </body>
 </html>

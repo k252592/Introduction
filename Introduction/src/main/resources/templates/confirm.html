@@ -1,30 +1,42 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-<meta charset="UTF-8">
-<title>確認画面</title>
+	<meta charset="UTF-8">
+	<title>確認画面</title>
 </head>
+
 <body>
 	<h1>自己紹介登録確認</h1>
- <form th:action = "@{/user/input/back}" th:object = "${inputRequest}" method="post">
-  <label>名前</label><p th:text = "*{name}"></p>
-  <label>フリガナ</label><p th:text = "*{kana}"></p>
-  <label>性別</label><br><p th:text = "*{gender}"></p>
-  <label>趣味</label><br>
-  <label>一言</label><p th:text = "*{word}"></p>
-  <input type="submit" value="完了">
- </form>
-<!--	<h1>自己紹介登録確認</h1>-->
-<!--	<label>名前</label><p>[[${name}]]</p><br>-->
-<!--	<label>フリガナ</label><p>[[${kana}]]</p><br>-->
-<!--	<label>性別</label><br>-->
-<!--	<label>趣味</label><br>-->
-<!--	<label>一言</label><br>-->
-<!--	<form th:action = "@{/user/input}" method="post">-->
-<!--		<input type="submit" value="戻る">-->
-<!--	</form>-->
-<!--	<form>-->
-<!--		<input type="submit" value="完了">-->
-<!--	</form>-->
+	<div th:object="${inputRequest}">
+		<label>名前</label>
+		<p th:text="*{name}"></p>
+		<label>フリガナ</label>
+		<p th:text="*{kana}"></p>
+		<label>性別</label><br>
+		<p th:text="${genderValue}"></p>
+		<label>趣味</label><br>
+		<p th:text="${hobbyValue}"></p>
+		<label>一言</label>
+		<p th:text="*{word}"></p>
+
+		<form th:action = "@{/user/back}" method="post">
+			<input type="hidden" name="name" th:value="*{name}">
+			<input type="hidden" name="kana" th:value="*{kana}">
+			<input type="hidden" name="gender" th:value="${genderValue}">
+			<input type="hidden" name="hobby" th:value="${hobbyValue}">
+			<input type="hidden" name="word" th:value="*{word}">
+			<input type="submit" value="戻る">
+		</form>
+		<form th:action = "@{/user/complete}" method="post">
+			<input type="hidden" name="name" th:value="*{name}">
+			<input type="hidden" name="kana" th:value="*{kana}">
+			<input type="hidden" name="gender" th:value="${genderValue}">
+			<input type="hidden" name="hobby" th:value="${hobbyValue}">
+			<input type="hidden" name="word" th:value="*{word}">
+			<input type="submit" value="完了">
+		</form>
+	</div>
 </body>
+
 </html>

@@ -4,7 +4,6 @@ import java.util.Date;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
@@ -18,15 +17,9 @@ import lombok.Data;
 public class IntroductionsEntity {
 
 	/**
-	 * 自己紹介ID
-	 */
-	@Id
-	@GeneratedValue
-	@Column(name = "introduction_id")
-	private Integer introduction_id;
-	/**
 	 * ユーザーID
 	 */
+	@Id
 	@Column(name = "user_id")
 	private String userId;
 	/**
@@ -43,7 +36,7 @@ public class IntroductionsEntity {
 	 * 性別
 	 */
 	@Column(name = "gender")
-	private char gender;
+	private String gender;
 	/**
 	 * 趣味
 	 */

@@ -6,10 +6,35 @@
 </head>
 <body>
 	<h1>自己紹介</h1>
-	<form>
-		<input type="submit" value="戻る" formaction="/list">
-		<input type="submit" value="編集" formaction="/input">
-		<input type="submit" value="削除">
+	<form th:action = "@{/detail/action}" method="post">
+		<div th:object = "${userDetail}">
+			<input type="hidden" name = "userId" th:value = "*{userId}">
+			<span th:text = "${detailMsg}"></span>
+	  		<div>
+				<label>名前</label>
+			 	<span th:text = "*{name}"></span>
+			</div>
+			<div>
+				<label>フリガナ</label>
+			 	<span th:text = "*{kana}"></span>
+			</div>
+			<div>
+				<label>性別</label>
+			 	<span th:text = "*{gender}"></span>
+			</div>
+			<div>
+				<label>趣味</label>
+			 	<span th:text = "*{hobby}"></span>
+			</div>
+			<div>
+				<label>一言</label>
+			 	<span th:text = "*{word}"></span>
+			</div>
+		</div>
+		<input type="submit" name="action" value="戻る">
+		<input type="submit" name="action" value="編集">
+		<input type="submit" name="action" value="削除">
 	</form>
+		
 </body>
 </html>

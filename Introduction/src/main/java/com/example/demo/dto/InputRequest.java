@@ -27,11 +27,12 @@ public class InputRequest {
 	/**
 	 * 性別
 	 */
-	private char gender;
+	private String gender;
 	
 	/**
 	 * 趣味
 	 */
+	@NotEmpty(message = "趣味は必須項目です。一つ以上選んでください。")
 	private String hobby;
 	
 	/**

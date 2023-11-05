@@ -6,15 +6,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class loginController {
 
+	/**
+	 * ログイン画面を表示
+	 * @return ログイン画面
+	 */
 	@GetMapping("/login")
-	public String show() {
+	public String view() {
 		return "login";
 	}
-	
-	/**
-	 * PasswordEncoder
-	 */
-//	private final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-	
 
 }
