@@ -31,7 +31,7 @@ public class WebSecurityConfig {
 		 */
 		
 		http.authorizeHttpRequests((requests) -> requests
-			    .requestMatchers("/login", "register", "/user/create").permitAll()
+			    .requestMatchers("/login", "register", "/user/create", "/layout", "/css/**").permitAll()
 			    .anyRequest().authenticated());
 		
 		return http.build();

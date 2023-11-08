@@ -13,7 +13,9 @@ public class TopController {
 	 */
 	@GetMapping("/top")
 	public String view() {
+		
 		return "top";
+		
 	}
 	
 }

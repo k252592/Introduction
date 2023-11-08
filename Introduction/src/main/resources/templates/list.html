@@ -1,12 +1,16 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorate="~{layout/layout}">
 <head>
 <meta charset="UTF-8">
+<link th:href = "@{/css/list.css}" rel = "stylesheet" type="text/css">
 <title>一覧画面</title>
 </head>
 <body>
+	<div layout:fragment = "content">
 	<h1>自己紹介登録者一覧</h1>
-	<form th:action = "@{/detail}" method="post">
+	<form th:action = "@{/detail}" method="post" class="list">
 		<table class="list">
 		<thead>
 			<tr>
@@ -16,14 +20,14 @@
 		</thead>
 		<tbody>
 			<tr th:each = "user : ${userlist}" th:object = "${user}">
-				<td><input type="submit" th:value="*{userId}" name = "*{userId}"></td>
+				<td><input type="submit" class="userId" th:value="*{userId}" name = "*{userId}"></td>
 				<td th:text = "*{name}"></td>
 			</tr>
 		</tbody>
 	</table>
 	</form>
 	<form th:action="@{/top}" method="post">		
-		<input type="submit" value="TOPへ戻る">
+		<input type="submit" value="TOPへ戻る" class="button">
 	</form>
 </body>
 </html>

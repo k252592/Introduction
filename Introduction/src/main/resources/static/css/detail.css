@@ -1,0 +1,65 @@
+@charset "UTF-8";
+
+h1{
+	margin: 30px auto;
+	font-size: 1.5rem;
+	text-align: center;
+	color:rgb(45, 45, 45);
+}
+
+.errMsg{
+	font-size: 1rem;
+}
+
+table{
+	margin-right: auto;
+	margin-left: auto;
+	border: solid 1px; 
+	border-collapse:  collapse;
+	background-color: aliceblue;
+	margin-bottom: 40px;
+	width: 450px;
+}
+
+tr,td {
+    border: solid 1px;
+}
+
+.tr{
+	height: 40px;
+}
+
+td{
+	padding: 5px;
+	text-align: left;
+}
+
+.label{
+	text-align: center;
+	width: 40%;
+	background-color: rgb(255, 233, 145);
+}
+
+.word{
+	height: 120px;
+}
+
+/*ボタン設定*/
+.btn{
+	
+	margin: 10px 15px;	 
+	border-radius: 5%;
+	font-size: 12px ;
+	text-align:center;
+	cursor: pointer;
+	padding: 10px 18px; 
+	background : rgb(17, 160, 238); 
+	color: #ffffff; 
+	line-height: 1em;  
+	border: 1px solid rgb(17, 160, 238); 
+}
+
+.delete{
+	background : rgb(255, 43, 43);
+	border: 1px solid rgb(255, 43, 43); 
+}

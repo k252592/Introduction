@@ -1,0 +1,43 @@
+@charset "UTF-8";
+
+
+h2{
+	color: rgb(45, 45, 45);
+}
+
+#register{
+	margin-top: 40px;
+}
+
+#list{
+	margin-top: 20px;
+}
+
+.btn{
+	margin:20px auto;
+	border-radius : 5%; 
+	font-size: 0.8rem;
+	cursor : pointer;
+	padding  : 10px 18px; 
+	color:aliceblue;
+	background: mediumpurple;
+	border : 1px solid mediumpurple;
+	
+}
+
+.button{
+	margin-top: 15px;
+	 border-radius : 5%;          /* 角丸       */
+	  font-size     : 12px ;     /* 文字サイズ */
+	  text-align    : center;      /* 文字位置   */
+	  cursor        : pointer;     /* カーソル   */
+	  padding       : 10px 18px;   /* 余白       */
+	  background    : rgb(17, 160, 238);     /* 背景色     */
+	  color         : #ffffff;     /* 文字色     */
+	  line-height   : 1em;         /* 1行の高さ  */
+	  border        : 1px solid rgb(17, 160, 238);    /* 枠の指定 */
+}
+
+.logout{
+	margin-top: 20px;
+}

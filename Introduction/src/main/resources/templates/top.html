@@ -1,22 +1,33 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" 
+xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorate="~{layout/layout}">
 <head>
 <meta charset="UTF-8">
 <title>TOP画面</title>
+<link th:href = "@{/css/top.css}" rel = "styleSheet" type="text/css">
 </head>
 <body>
-	<form th:action="@{/user/input}" method="post">
+	<div layout:fragment = "content">
+	<form th:action="@{/user/input}" method="post" id="register">
 		<h2>自己紹介登録</h2>
-		<input type="submit" value="登録/更新">
-		<p>新しく自己紹介を作ります。<br>あなたをより知ってもらうために、<br>趣味や一言を工夫しましょう。<br>最高の自己紹介を完成させて、よりあなたを<br>知ってもらえるチャンスにしましょう。</p>
+		<input type="submit" value="登録/更新" class="btn">
+		<p>
+			自己紹介情報の登録、更新を行います。<br>
+			あなたのことをより知ってもらうために、<br>
+			一言にメッセージを書きましょう。
+		</p>
 	</form>
-	<form th:action = "@{/user/list}" method="post">
+	<form th:action = "@{/user/list}" method="post" id="list">
 		<h2>自己紹介登録者一覧</h2>
-		<input type="submit" value="一覧画面へ">
-		<p>登録している人を確認します。<br>登録している人の自己紹介記事をみてみましょう。</p>
+		<input type="submit" value="一覧画面へ" class="btn">
+		<p>
+			登録している人を見ることができます。<br>
+			登録している人の自己紹介を見てみましょう。
+		</p>
 	</form>
-	<form th:action="@{/logout}" method="post">
-        <input type="submit" name="logout" value="ログアウト"/>
+	<form th:action="@{/logout}" method="post" class="logout">
+        <input type="submit" name="logout" value="ログアウト" class="button"/>
     </form>
 </body>
 </html>

@@ -87,7 +87,7 @@ public class DetailController {
 			if(userId.equals(securitySession.getUsername())) {
 				// 削除処理 + 削除完了画面へ
 				detailService.delete(userId);
-				return "deleteFin";
+				return "delete";
 			}else {
 				// 削除エラーを表示
 				model.addAttribute("detailMsg", "削除権限がありません。");

@@ -1,22 +1,27 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorate="~{layout/layout}">
 <head>
+	<link th:href = "@{/css/login.css}" rel = "stylesheet" type="text/css">
 <meta charset="UTF-8">
 <title>ログイン</title>
 </head>
 <body>
-	<h1>ログイン</h1>
+	<div layout:fragment = "content">
+		<h1>ログイン</h1>
 	<form th:action="@{/login}" th:object = "${userRequest}" method="post">
 		<div class="form-group">
 			<label>UserID</label>
-			<input type="text" name = "userId">
-		</div>
+			<input type="text" name = "userId" class="text">
+		</div><br>
 		<div class="form-group">
 			<label>password</label>
-			<input type="text" name="password">
-		</div>
-		<input type="submit" value="ログイン">
+			<input type="text" name="password" class="text">
+		</div><br>
+		<input type="submit" value="ログイン" class="button">
 	</form>
 	<a href="register">新規会員登録はこちら</a>
+	</div>
 </body>
 </html>

@@ -1,0 +1,46 @@
+@charset "UTF-8";
+
+h1{
+	margin: 30px auto;
+	text-align: center;
+	color: rgb(0, 0, 0);
+}
+
+.list{
+	width: 70%;
+	margin: auto;
+}
+
+table, th, td {
+	border-collapse: collapse;
+  	border:1px solid #333;
+  
+}
+
+th{
+	background-color: cornflowerblue;
+}
+
+td{
+	background-color: aliceblue;
+}
+
+.userId{
+	display: inline-block;
+	background-color: aliceblue;
+	border: none;
+	cursor        : pointer;
+}
+
+.button{
+	margin-top: 30px;
+	border-radius : 5%;          /* 角丸       */
+	font-size     : 12px ;     /* 文字サイズ */
+	text-align    : center;      /* 文字位置   */
+	cursor        : pointer;     /* カーソル   */
+	padding       : 10px 18px;   /* 余白       */
+	background    : rgb(17, 160, 238);     /* 背景色     */
+	color         : #ffffff;     /* 文字色     */
+	line-height   : 1em;         /* 1行の高さ  */
+	border        : 1px solid rgb(17, 160, 238);    /* 枠の指定 */
+}

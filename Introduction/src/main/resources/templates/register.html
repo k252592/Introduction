@@ -1,32 +1,36 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorate="~{layout/layout}">
 <head>
 <meta charset="UTF-8">
+<link th:href = "@{/css/register.css}" rel = "styleSheet" type="text/css">
 <title>新規会員登録</title>
 </head>
 <body>
+	<div layout:fragment = "content">
 	<h1>新規会員登録</h1>
 	<form th:action = "@{/user/create}" th:object = "${userRequest}" method = "post">
-		<div th:text = "${existsUserId}"></div>
+		<div th:text = "${existsUserId}" class="errMsg"></div>
 		<div th:text = "${register}"></div>
 		<div class="form-group">
-			<div th:if = "${userIdError}" th:text = "${userIdError}"></div>
+			<div th:if = "${userIdError}" th:text = "${userIdError}" class="errMsg"></div>
 			<label>UserID</label><span>必須</span>
-			<input type="text" th:field = "*{userId}">
+			<input type="text" th:field = "*{userId}" class="text">
 		</div>
 		<div class="form-group">
-			<div th:if = "${EmailError}" th:text = "${EmailError}"></div>
+			<div th:if = "${EmailError}" th:text = "${EmailError}" class="errMsg"></div>
 			<label>MailAddress</label><span>必須</span>
-			<input type="text"  th:field = "*{email}">
+			<input type="text"  th:field = "*{email}" class="text">
 		</div>
 		<div class="form-group">
-			<div th:if = "${PasswordError}" th:text = "${PasswordError}"></div>
+			<div th:if = "${PasswordError}" th:text = "${PasswordError}" class="errMsg"></div>
 			<label>PassWord</label><span>必須</span>
-			<input type="text"  th:field = "*{password}">
+			<input type="text"  th:field = "*{password}" class="text">
 		</div>
 		<br>
 <!--		<input type="hidden" >-->
-		<input type="submit" value = "登録">
+		<input type="submit" value = "登録" class="button">
 		<a href="login">ログイン画面へ</a>
 	</form>
 </body>

@@ -48,11 +48,6 @@ public class IntroductionsEntity {
 	@Column(name = "word")
 	private String word;
 	/*
-	 * 登録日
-	 */
-	@Column(name = "created_at")
-	private Date createDate;
-	/*
 	 * 更新日
 	 */
 	@Column(name = "updated_at")

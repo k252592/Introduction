@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorate="~{layout/layout}">
+<head>
+<meta charset="UTF-8">
+<link th:href = "@{/css/delete.css}" rel = "stylesheet" type="text/css">
+<title>削除完了</title>
+</head>
+<body>
+	<div layout:fragment = "content">
+	<p class="delete">削除が完了しました。</p>
+	<form th:action="@{/top}" method="get">
+		<input type="submit" value="TOPへ戻る" class="btn">
+	</form>
+</body>
+</html>

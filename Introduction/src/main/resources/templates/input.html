@@ -1,46 +1,115 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org" 
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorate="~{layout/layout}">
 
 <head>
 	<meta charset="UTF-8">
+	<link th:href = "@{/css/input.css}" rel = "stylesheet" type="text/css">
 	<title>入力画面</title>
 </head>
 
 <body>
-	<p>自己紹介の内容を記入して下さい</p>
-	<form th:action="@{/input/create}" th:object="${inputRequest}" method="post">
-		<div class="form-group">
-			<div th:if="${nameError}" th:text="${nameError}"></div>
-			<label>名前</label><span>必須</span>
-			<input type="text" name="name" th:value="${nameRecord}">
-		</div><br>
-		<div class="form-group">
-			<div th:if="${kanaError}" th:text="${kanaError}"></div>
-			<label>フリガナ</label><span>必須</span>
-			<input type="text" name="kana" th:value="${kanaRecord}">
-		</div><br>
-		<div class="form-group">
-			<label>性別</label>
-			<div th:each="item : ${radioGender}" class="form-check-inline">
-				<input type="radio" name="gender" class="form-check-input" th:value="${item}" th:text="${item}"
-					th:checked="${item == genderRecord}">
-			</div>
-		</div><br>
-		<div class="form-group">
-			<div th:if="${hobbyError}" th:text="${hobbyError}"></div>
-			<label>趣味</label><span>必須</span>
-			<div th:each="item : ${checkHobby}">
-				<input type="checkbox" name="hobby" th:value="${item}" th:text="${item}"
-					th:checked="${hobbyRecord !=null and hobbyRecord.contains(item)}">
-			</div><br>
-			<div class="form-group">
-				<div th:if="${wordError}" th:text="${wordError}"></div>
-				<label>一言</label>
-				<input type="text" name="word" th:value="${wordRecord}"><br>
-			</div>
-			<input type="submit" value="次へ">
-	</form>
-	<a th:href="@{/top}">戻る</a>
+	<section layout:fragment = "content">
+		<p class="input">自己紹介の内容を記入して下さい</p>
+		
+		
+		
+		<form th:action="@{/input/create}" th:object="${inputRequest}" method="post">
+			
+			<table>
+			<tr class="err">
+				<td></td>
+				<td></td>
+				<td class="errMsg" th:if="${nameError}" th:text="${nameError}"></td>
+			</tr>
+			<tr class="row">
+				<td class="label">名前</td>
+				<td class="note">必須</td>
+				<td><input type="text" name="name" class="text form" th:value="${nameRecord}"></td>
+			</tr>
+			<tr class="err">
+				<td></td>
+				<td></td>
+				<td class="errMsg" th:if="${kanaError}" th:text="${kanaError}"></td>
+			</tr>
+			<tr class="row">
+				<td class="label">フリガナ</td>
+				<td class="note">必須</td>
+				<td><input type="text" name="kana" class="form text" th:value="${kanaRecord}"></td>
+			</tr>
+			<tr class="err"></tr>
+			<tr class="row">
+				<td class="label">性別</td>
+				<td></td>
+				<td th:each="item : ${radioGender}" class="form-check-inline form"><input type="radio" name="gender"  th:value="${item}" th:text="${item}"
+						th:checked="${item == genderRecord}"></td>
+			</tr>
+			<tr class="err">
+				<td></td>
+				<td></td>
+				<td th:if="${hobbyError}" th:text="${hobbyError}" class="errMsg"></td>
+			</tr>
+			<tr class="row">
+				<td class="label">趣味</td>
+				<td class="note">必須</td>
+				<td>
+					<div th:each="item : ${checkHobby}" class="checkbox">
+					<input type="checkbox" name="hobby" class="form" th:value="${item}" th:text="${item}"
+						th:checked="${hobbyRecord !=null and hobbyRecord.contains(item)}">
+					</div>
+				</td>
+			</tr>
+			<tr class="err">
+				<td></td>
+				<td></td>
+				<td class="errMsg" th:if="${wordError}" th:text="${wordError}"></td>
+			</tr>
+			<tr class="word">
+				<td class="label">一言</td>
+				<td></td>
+				<td><input type="text" name="word" class="text form" th:value="${wordRecord}"></td>
+			</tr>
+		</table>
+<!--			<div class="form-group">-->
+<!--				<div th:if="${nameError}" th:text="${nameError}"></div>-->
+<!--				<label>名前<span>必須</span></label>-->
+<!--				<input type="text" name="name" class="text form" th:value="${nameRecord}">-->
+<!--			</div><br>-->
+<!--			<div class="form-group">-->
+<!--				<div th:if="${kanaError}" th:text="${kanaError}"></div>-->
+<!--				<label>フリガナ<span>必須</span></label>-->
+<!--				<input type="text" name="kana" class="text form" th:value="${kanaRecord}">-->
+<!--			</div><br>-->
+<!--			<div class="form-group">-->
+<!--				<label>性別</label>-->
+<!--				<div th:each="item : ${radioGender}" class="form-check-inline">-->
+<!--					<div class="radio">-->
+<!--					<input type="radio" name="gender"  class="text form" th:value="${item}" th:text="${item}"-->
+<!--						th:checked="${item == genderRecord}">-->
+<!--					</div>-->
+<!--				</div>-->
+<!--			</div><br>-->
+<!--			<div class="form-group">-->
+<!--				<div th:if="${hobbyError}" th:text="${hobbyError}"></div>-->
+<!--				<label>趣味<span>必須</span></label>-->
+<!--				<div th:each="item : ${checkHobby}" class="checkbox">-->
+<!--					<input type="checkbox" name="hobby" class="text form" th:value="${item}" th:text="${item}"-->
+<!--						th:checked="${hobbyRecord !=null and hobbyRecord.contains(item)}">-->
+<!--				</div>-->
+<!--			</div><br>-->
+<!--			<div class="form-group">-->
+<!--				<div th:if="${wordError}" th:text="${wordError}"></div>-->
+<!--				<label>一言</label>-->
+<!--				<input type="text" name="word" class="text form" th:value="${wordRecord}">-->
+<!--			</div><br>-->
+	<div class="submit">
+		<a th:href = "@{/top}" class="btn back">戻る</a>
+		<input type="submit" value="次へ" class="btn next">
+	</div>
+			
+		</form>
+	</section>
 </body>
 
 </html>

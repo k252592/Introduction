@@ -1,41 +1,69 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorate="~{layout/layout}">
 
 <head>
 	<meta charset="UTF-8">
+	<link th:href = "@{/css/confirm.css}" rel = "stylesheet" type="text/css">
 	<title>確認画面</title>
 </head>
 
 <body>
-	<h1>自己紹介登録確認</h1>
-	<div th:object="${inputRequest}">
-		<label>名前</label>
-		<p th:text="*{name}"></p>
-		<label>フリガナ</label>
-		<p th:text="*{kana}"></p>
-		<label>性別</label><br>
-		<p th:text="${genderValue}"></p>
-		<label>趣味</label><br>
-		<p th:text="${hobbyValue}"></p>
-		<label>一言</label>
-		<p th:text="*{word}"></p>
-
-		<form th:action = "@{/user/back}" method="post">
-			<input type="hidden" name="name" th:value="*{name}">
-			<input type="hidden" name="kana" th:value="*{kana}">
-			<input type="hidden" name="gender" th:value="${genderValue}">
-			<input type="hidden" name="hobby" th:value="${hobbyValue}">
-			<input type="hidden" name="word" th:value="*{word}">
-			<input type="submit" value="戻る">
-		</form>
-		<form th:action = "@{/user/complete}" method="post">
-			<input type="hidden" name="name" th:value="*{name}">
-			<input type="hidden" name="kana" th:value="*{kana}">
-			<input type="hidden" name="gender" th:value="${genderValue}">
-			<input type="hidden" name="hobby" th:value="${hobbyValue}">
-			<input type="hidden" name="word" th:value="*{word}">
-			<input type="submit" value="完了">
-		</form>
+	<div layout:fragment = "content">
+		<h1>自己紹介登録確認</h1>
+		<div th:object="${inputRequest}">
+			<table>
+				<tr>
+					<td class="label">名前</td>
+					<td class="form"><p th:text="*{name}"></p></td>
+				</tr>
+				<tr>
+					<td class="label">フリガナ</td>
+					<td class="form"><p th:text="*{kana}"></p></td>
+				</tr>
+				<tr>
+					<td class="label">性別</td>
+					<td class="form"><p th:text="${genderValue}"></p></td>
+				</tr>
+				<tr>
+					<td class="label">趣味</td>
+					<td class="form"><p th:text="${hobbyValue}"></p></td>
+				</tr>
+				<tr class="word">
+					<td class="label">一言</td>
+					<td class="form"><p th:text="*{word}"></p></td>
+				</tr>
+			</table>
+<!--		<label>名前</label>-->
+<!--		<p th:text="*{name}"></p>-->
+<!--		<label>フリガナ</label>-->
+<!--		<p th:text="*{kana}"></p>-->
+<!--		<label>性別</label><br>-->
+<!--		<p th:text="${genderValue}"></p>-->
+<!--		<label>趣味</label><br>-->
+<!--		<p th:text="${hobbyValue}"></p>-->
+<!--		<label>一言</label>-->
+<!--		<p th:text="*{word}"></p>-->
+			<div class="submit">
+			<form th:action = "@{/user/back}" method="post">
+				<input type="hidden" name="name" th:value="*{name}">
+				<input type="hidden" name="kana" th:value="*{kana}">
+				<input type="hidden" name="gender" th:value="${genderValue}">
+				<input type="hidden" name="hobby" th:value="${hobbyValue}">
+				<input type="hidden" name="word" th:value="*{word}">
+				<input type="submit" value="戻る" class="btn">
+			</form>
+			<form th:action = "@{/user/complete}" method="post">
+				<input type="hidden" name="name" th:value="*{name}">
+				<input type="hidden" name="kana" th:value="*{kana}">
+				<input type="hidden" name="gender" th:value="${genderValue}">
+				<input type="hidden" name="hobby" th:value="${hobbyValue}">
+				<input type="hidden" name="word" th:value="*{word}">
+				<input type="submit" value="完了" class="btn">
+			</form>
+			</div>
+		</div>
 	</div>
 </body>
 

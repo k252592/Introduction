@@ -1,39 +1,87 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorate="~{layout/layout}">
 <head>
 <meta charset="UTF-8">
+<link th:href = "@{/css/detail.css}" rel = "stylesheet" type="text/css">
 <title>詳細画面</title>
 </head>
 <body>
+	<div layout:fragment = "content">
 	<h1>自己紹介</h1>
 	<form th:action = "@{/detail/action}" method="post">
 		<div th:object = "${userDetail}">
 			<input type="hidden" name = "userId" th:value = "*{userId}">
-			<span th:text = "${detailMsg}"></span>
-	  		<div>
-				<label>名前</label>
-			 	<span th:text = "*{name}"></span>
-			</div>
-			<div>
-				<label>フリガナ</label>
-			 	<span th:text = "*{kana}"></span>
-			</div>
-			<div>
-				<label>性別</label>
-			 	<span th:text = "*{gender}"></span>
-			</div>
-			<div>
-				<label>趣味</label>
-			 	<span th:text = "*{hobby}"></span>
-			</div>
-			<div>
-				<label>一言</label>
-			 	<span th:text = "*{word}"></span>
-			</div>
+			<span th:text = "${detailMsg}" class="errMsg"></span>
+			<table>
+				<tr class="tr">
+					<td class="label">
+						<label>名前</label>
+					</td>
+					<td>
+						<span th:text = "*{name}"></span>
+					</td>
+				</tr>
+				<tr class="tr">
+					<td class="label">
+						<label>フリガナ</label>
+					</td>
+					<td>
+						<span th:text = "*{kana}"></span>
+					</td>
+				</tr>
+				<tr class="tr">
+					<td class="label">
+						<label>性別</label>
+					</td>
+					<td>
+						<span th:text = "*{gender}"></span>
+					</td>
+				</tr>
+				<tr class="tr">
+					<td class="label">
+						<label>趣味</label>
+					</td>
+					<td>
+						<span th:text = "*{hobby}"></span>
+					</td>
+				</tr>
+				<tr class="word">
+					<td class="label">
+						<label>一言</label>
+					</td>
+					<td>
+						<span th:text = "*{word}"></span>
+					</td>
+				</tr>
+			</table>
+			
+			
+<!--	  		<div>-->
+<!--				<label>名前</label>-->
+<!--			 	<span th:text = "*{name}"></span>-->
+<!--			</div>-->
+<!--			<div>-->
+<!--				<label>フリガナ</label>-->
+<!--			 	<span th:text = "*{kana}"></span>-->
+<!--			</div>-->
+<!--			<div>-->
+<!--				<label>性別</label>-->
+<!--			 	<span th:text = "*{gender}"></span>-->
+<!--			</div>-->
+<!--			<div>-->
+<!--				<label>趣味</label>-->
+<!--			 	<span th:text = "*{hobby}"></span>-->
+<!--			</div>-->
+<!--			<div>-->
+<!--				<label>一言</label>-->
+<!--			 	<span th:text = "*{word}"></span>-->
+<!--			</div>-->
 		</div>
-		<input type="submit" name="action" value="戻る">
-		<input type="submit" name="action" value="編集">
-		<input type="submit" name="action" value="削除">
+		<input type="submit" name="action" value="戻る" class="btn">
+		<input type="submit" name="action" value="編集" class="btn">
+		<input type="submit" name="action" value="削除" class="btn delete">
 	</form>
 		
 </body>
